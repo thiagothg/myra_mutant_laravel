@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'pt-br',
 
     /*
     |--------------------------------------------------------------------------
@@ -229,5 +229,4 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
-
 ];

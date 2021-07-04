@@ -151,6 +151,11 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'des_category'          => 'Category',
+        'des_product'           => 'Product',
+        'flg_active'            => 'Active',
+        
+    ],
 
 ];
