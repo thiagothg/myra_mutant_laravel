@@ -30,11 +30,6 @@ use App\Models\Helper;
                     <a class="nav-link {{ Helper::verifyCurrentRoute('product') ? 'active' : '' }}" href="{{ route('product.index') }}">@lang('labels.product')</a>
                 </li>
             </ul>
-
-            <form class="d-flex">
-                <input class="form-control me-2" value="{{Route::currentRouteAction()}} "type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
         </div>
     </div>
 </nav>
