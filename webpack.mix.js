@@ -11,6 +11,10 @@ const mix = require('laravel-mix');
  |
  */
 
+const ASSET_URL = '/myra_mutant_laravel';
+
+mix.setResourceRoot(ASSET_URL);
+
 mix.js('resources/js/app.js', 'public/js')
     // .postCss('resources/css/app.css', 'public/css', [
     //     //
