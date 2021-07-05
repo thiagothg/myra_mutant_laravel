@@ -175,7 +175,10 @@ return [
         'category'          => 'Categoria',
         'product'           => 'Produto',
         'flg_active'        => 'Ativo',
-    
+        'des_category'      => 'Categoria',
+        'des_product'       => 'Produto',
+        'qtd_storage'       => 'Qtd',
+        'qtd_price'         => 'Preço'
     ],
 
 ];

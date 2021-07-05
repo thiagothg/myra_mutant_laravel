@@ -155,7 +155,10 @@ return [
         'des_category'          => 'Category',
         'des_product'           => 'Product',
         'flg_active'            => 'Active',
-        
+        'des_category'          => 'Categoria',
+        'qtd_storage'           => 'Qtd',
+        'qtd_price'             => 'Preço'
+
     ],
 
 ];

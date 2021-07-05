@@ -9,7 +9,13 @@
 
 @section('content')
     @include('layouts.messages')
-    <a class="btn btn-dark mb-3 mt-3" href="{{ route('category.create') }}" role="button">@lang('labels.new_record')</a>
+
+    <button type="button" id="new-record-button" class="btn btn-dark mb-3 mt-3" data-bs-toggle="modal" data-bs-target="#modal-category">
+        @lang('labels.new_record')
+    </button>
+
+    @include('category.modal', ['method' => 'POST', 'route' => route('ajaxCategory.store')])
+    
     @include('category.grid')
 @endsection
 

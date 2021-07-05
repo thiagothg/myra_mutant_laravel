@@ -24,22 +24,18 @@ return [
     'yes'               => 'Sim',
     'no'                => 'Não',
     'acao'              => 'Ação',
-    'edit'              => 'Editar',
-    'delete'            => 'Deletar',
+    'qtd_price'         => 'Preço',
+    'qtd_storage'       => 'Qtd',
+    'selecione'         => 'Select',
 
     //buttons
     'new_record'        => 'Novo Registro',
     'save'              => 'Salvar',
+    'close'             => 'Close',
+    'edit'              => 'Editar',
+    'delete'            => 'Deletar',
 
     //Breadcrumbs
     'create'            => 'Incluir',
-
-
-
-
-    'sent' => 'We have emailed your password reset link!',
-    'throttled' => 'Please wait before retrying.',
-    'token' => 'This password reset token is invalid.',
-    'user' => "We can't find a user with that email address.",
 
 ];

@@ -31,8 +31,15 @@ class CategoryController extends Controller
                 'acao' => view('layouts.grid_buttons', [
                     'code' => $item->cod_category,
                     'description' => $item->des_category,
-                    'route_edit' => route('category.edit', ['category' => Crypt::encryptString($item->cod_category)]),
-                    'route_delete' => route('ajaxCategory.destroy', ['ajaxCategory' => Crypt::encryptString($item->cod_category)]),
+                    'route_get_item' => route('ajaxCategory.edit', [
+                        'ajaxCategory' => Crypt::encryptString($item->cod_category)
+                    ]),
+                    'route_edit' => route('ajaxCategory.update', [
+                        'ajaxCategory' => Crypt::encryptString($item->cod_category)
+                    ]),
+                    'route_delete' => route('ajaxCategory.destroy', [
+                        'ajaxCategory' => Crypt::encryptString($item->cod_category)
+                    ]),
                 ])->render(),
             ];
         });
@@ -94,7 +101,13 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $model = Category::findOrFail(Crypt::decryptString($id));
+        
+        return response()->json([
+            'success'=> true, 
+            'message' => 'Category found.',
+            'data' => $model
+        ]);
     }
 
     /**
@@ -104,9 +117,20 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoryRequest $request, $id)
     {
-        //
+        $model = Category::findOrFail(Crypt::decryptString($id));
+
+        $model->fill($request->all());
+        $model->update();
+
+        Session::flash('success', ('Category update success.')); 
+        
+        return response()->json([
+            'success'=> true, 
+            'message' => 'Category update success.',
+            'url' => route('category.index')
+        ]);
     }
 
     /**
@@ -117,6 +141,66 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        try {
+            $model = Category::findOrFail(Crypt::decryptString($id));
+            $model->delete();
+
+            return response([
+                'success' => true,
+                'message' => 'Registro excluído com sucesso',
+            ]);
+        }
+        catch(Exception $e)
+        {
+            return response([
+                'success' => false,
+                'message' => 'Não foi possivel',
+            ]); 
+        }
+    }
+
+
+    /**
+     * Get Category active.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function ajaxGetCategory(Request $request)
+    {
+        
+        try {
+            $model = Category::orderBy('des_category', 'ASC')
+                ->where(function($query)  use ($request) {
+                    if($request->has('search')) {
+                        $query->where('des_category', 'like', '%'. $request->input('search') . '%');
+                    }
+                })
+                ->where('flg_active', env('FLG_ACTIVE'))
+                ->limit(50)
+                ->get();
+
+            $list = $model->map(function($item) {
+                return [
+                    'id' => $item->cod_category,
+                    'text' => $item->des_category
+                ];
+            });
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Sucesso.',
+                'results' => $list
+            ]);
+        }
+        catch(Exception $e)
+        {
+            return response([
+                'success' => false,
+                'message' => $e->getMessage(),
+                'results' => []
+            ]); 
+        }
     }
 }

@@ -15,7 +15,6 @@ class CategoryRequest extends FormRequest {
     {
         return [
             'des_category' => 'required|unique:tb_cad_category|max:150',
-            'body' => 'max:1',
         ];
     }
 }

@@ -37,3 +37,16 @@ window.bootstrap = require('bootstrap');
 //Datatables
 require('datatables.net-bs5')
 
+//FontAwesome
+require('@fortawesome/fontawesome-free/js/all.js');
+
+//bootbox
+window.bootbox = require('bootbox')
+
+//select2
+window.select2 = require('select2')
+require('select2/dist/js/i18n/pt-BR.js')
+
+window.$.fn.select2.defaults.set('theme', 'bootstrap')
+window.$.fn.select2.defaults.set('language', 'pt-BR')
+
