@@ -23,3 +23,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::resource('ajaxProduct', ProductController::class);
 Route::resource('ajaxCategory', CategoryController::class);
+Route::get('/ajaxGetCategory', [CategoryController::class, 'ajaxGetCategory']);

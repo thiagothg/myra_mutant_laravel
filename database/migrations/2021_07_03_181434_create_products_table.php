@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('des_product', 150)->unique();
             $table->integer('qtd_storage');
             $table->float('qtd_price');
+            $table->char('flg_active', 1)->nullable()->default(1);
             $table->integer('cod_category')->unsigned();
             $table->foreign('cod_category')->references('cod_category')->on('tb_cad_category');
             $table->timestamps();

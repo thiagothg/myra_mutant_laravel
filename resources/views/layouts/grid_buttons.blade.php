@@ -1,4 +1,4 @@
-<a href="{{ $route_edit }}"> 
+<a href="{{ $route_edit }}" data-id="{{ $code }}" data-method="PUT" data-route="{{ $route_get_item }}" class="update-button"> 
     <i class="fas fa-edit" title="{{ trans('labels.edit') }}" data-toggle="tooltip" data-placement="top">
     </i>
 </a>
