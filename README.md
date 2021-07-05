@@ -18,14 +18,14 @@ Myra é uma aplicação web com bootstrap & Jquery com API como backend utilizan
 
 ## Preview
 
-[MIT license](https://thiagoportofolio.000webhostapp.com/).
+[App](https://warm-bastion-63256.herokuapp.com/).
 
 <br>
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
--   Você instalou a versão mais recente de `<PHP / Laravel / MYSQL>`
+-   Você instalou a versão mais recente de `<PHP / Laravel / MYSQL> / NODE`
 -   Você tem uma máquina `<Windows / Linux / Mac>`.
 
 ## 🤝 Colaboradores
